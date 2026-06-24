@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 模仿吵架大师</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>⚙️ 设置</h2>
+        <button class="btn-close-sidebar" id="btnCloseSidebar">✕</button>
+      </div>
+
+      <!-- 温馨提示 -->
+      <div class="config-section tip-section">
+        <p>💡 温馨提示：如果想让 AI 帮你想怎么还嘴，把我方角色设置为自己哦～</p>
+      </div>
+
+      <!-- 角色预设 -->
+      <div class="config-section">
+        <h3>👤 角色预设</h3>
+        <label>我方角色</label>
+        <div class="preset-row">
+          <select id="myRoleSelect"></select>
+          <input type="text" id="myRoleCustom" placeholder="自定义角色..." style="display:none;">
+        </div>
+        <label style="margin-top:10px;">对方角色</label>
+        <div class="preset-row">
+          <select id="opponentRoleSelect"></select>
+          <input type="text" id="opponentRoleCustom" placeholder="自定义角色..." style="display:none;">
+        </div>
+      </div>
+
+      <!-- 场景预设 -->
+      <div class="config-section">
+        <h3>📍 场景预设</h3>
+        <label>吵架场景</label>
+        <div class="preset-row">
+          <select id="scenarioSelect"></select>
+          <input type="text" id="scenarioCustom" placeholder="自定义场景..." style="display:none;">
+        </div>
+      </div>
+
+      <!-- 吵架风格 -->
+      <div class="config-section">
+        <h3>🔥 吵架风格</h3>
+        <div class="style-list" id="styleList">
+          <!-- JS 动态填充 -->
+        </div>
+      </div>
+
+      <!-- 快捷操作 -->
+      <div class="config-section">
+        <button class="btn-clear" id="btnClearChat">🗑️ 清空对话</button>
+      </div>
+
+    </aside>
+
+    <!-- 主聊天区域 -->
+    <main class="chat-main">
+      <!-- 顶部栏 -->
+      <header class="chat-header">
+        <button class="btn-menu" id="btnToggleSidebar">☰</button>
+        <div class="header-title">
+          <h1>🔥 模仿吵架大师</h1>
+          <span class="header-subtitle" id="currentStyle">默认模式</span>
+        </div>
+      </header>
+
+      <!-- 消息列表 -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="welcome-message">
+          <div class="welcome-icon">🔥</div>
+          <h2>欢迎来到模仿吵架大师</h2>
+          <p>输入对方说的话，AI 会用同样的语气怼回去！</p>
+          <p class="welcome-hint">👈 在侧边栏选择吵架风格，开始 battle</p>
+        </div>
+      </div>
+
+      <!-- 输入区域 -->
+      <div class="chat-input-area">
+        <div class="input-hint" id="inputHint">今日剩余 <strong id="remainingCount">10</strong> 次对话</div>
+        <div class="input-row">
+          <textarea
+            id="messageInput"
+            placeholder="输入对方说的话..."
+            rows="1"
+            maxlength="500"
+          ></textarea>
+          <button class="btn-send" id="btnSend" title="发送">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
